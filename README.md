@@ -1,81 +1,55 @@
-# Turborepo starter
+# Sluggish Hackers
 
-This is an official starter Turborepo.
+[Sluggish Hackers](https://sluggish.at) 에서 제작한 도구 및 공공의 목적으로 제작하는 모든 도구와 라이브러리를 모아놓은 모노레포지토리입니다.
 
-## Using this example
+Sluggish Hackers는 비영리 활동가 및 단체들을 대상으로 업무자동화 도구를 제작하여 제공하거나 관련한 기술 자문을 나누는 비영리 커뮤니티입니다. 활동하면서 제작한 크롤러와 외부 API를 위한 코드베이스 및 이 코드베이스를 활용한 간단한 도구들을 한 곳에 모아 공유합니다.
 
-Run the following command:
+## Packages
 
-```sh
-npx create-turbo@latest
+```markdown
+🌤️ 이미 완료된 코드가 있고 옮기는 중
+🌥️ 계획만 있음
 ```
 
-## What's inside?
+### 크롤러
 
-This Turborepo includes the following packages/apps:
+#### 전국
 
-### Apps and Packages
+- [x] 국민신문고
+- [ ] 🌤️ [열린국회정보](https://open.assembly.go.kr/portal/openapi/main.do)
+- [ ] 🌤️ [복지로](https://www.bokjiro.go.kr)
+- [ ] 🌤️ [선거관리위원회 후보자 명부](http://info.nec.go.kr/main/showDocument.xhtml?electionId=0020240410&topMenuId=PC&secondMenuId=PCRI03) (링크는 깨졌으나 구조는 동일함)
+- [ ] 🌤️ [의약품안전나라 - 생산/수입/공급중단 보고 의약품](https://nedrug.mfds.go.kr/pbp/CCBAF01)
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+#### 지역
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- [ ] 🌤️ [서울시 영상회의록](https://ms.smc.seoul.kr/kr/cast/vod2.do)
+- [ ] 🌤️ [대전광역시 지역위원회 목록](https://www.daejeon.go.kr/drh/acm/drhAcmBoardList.do?menuSeq=6412)
+- [ ] 🌤️ [경상남도 의안 목록](https://council.gyeongnam.go.kr)
+- [ ] 🌤️ [대전광역시 의안 목록](https://council.daejeon.go.kr)
+- [ ] 🌤️ [부산광역시 의안 목록](https://council.busan.go.kr)
+- [ ] 🌤️ [인천광역시 의안 목록](https://www.icouncil.go.kr/)
+- [ ] 🌤️ [전라남도 의안 목록](https://bill.jnassembly.go.kr)
+- [ ] 🌤️ [제주도 의안 목록](https://www.council.jeju.kr)
 
-### Utilities
+###  API
 
-This Turborepo has some additional tools already setup for you:
+- [ ] 🌤️ [solapi](https://solapi.com/)
+- [ ] 🌤️ [stibee](https://stibee.com/)
+- [ ] 🌤️ [구글 검색](https://developers.google.com/custom-search/v1/overview)
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## Apps
 
-### Build
+### [epp (CLI)](apps/cli/README.md)
 
-To build all apps and packages, run the following command:
+- [x] [국민신문고](https://www.epeople.go.kr/)
+  - 데이터 가져오기
+  - 데이터 디비 업로드하기(supabase)
 
-```
-cd my-turborepo
-pnpm build
-```
+## Credit
 
-### Develop
+- [후니](https://hoony.land)
 
-To develop all apps and packages, run the following command:
+## License
 
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+[MIT License](LICENSE)

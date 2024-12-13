@@ -11,8 +11,7 @@ class FetchCommand implements ISubCommand {
 
   constructor() {
     this.name = "fetch";
-    this.description =
-      "sync data from epeople.go.kr to remote database (supabase)";
+    this.description = "fetch data from epeople.go.kr";
     this.options = {
       username: new Option("-u, --username <username>", "username"),
       password: new Option("-p, --password <password>", "password"),
