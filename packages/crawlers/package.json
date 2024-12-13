@@ -1,0 +1,29 @@
+{
+  "name": "@repo/crawlers",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@types/node": "^22.10.2",
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "qs": "^6.13.1"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/qs": "^6.9.17",
+    "typescript": "latest",
+    "turbo": "latest"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "cli",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "description": "",
+  "dependencies": {
+    "@repo/crawlers": "workspace:*",
+    "axios": "^1.7.9",
+    "commander": "^12.1.0",
+    "cookie": "^1.0.2",
+    "figlet": "^1.8.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint . --fix",
+    "start": "npx ts-node src/main.ts",
+    "dev": "tsx ./src/main.ts",
+    "prod": "tsc && node ./dist/main.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
