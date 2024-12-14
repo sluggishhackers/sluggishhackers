@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "description": "",
   "dependencies": {
-    "@repo/crawlers": "workspace:*",
+    "@slg/crawlers": "workspace:*",
+    "@slg/openapi": "workspace:*",
     "axios": "^1.7.9",
     "commander": "^12.1.0",
     "cookie": "^1.0.2",
