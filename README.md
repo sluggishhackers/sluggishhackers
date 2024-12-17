@@ -32,19 +32,32 @@ Sluggish Hackers는 비영리 활동가 및 단체들을 대상으로 업무자�
 - [ ] 🌤️ [전라남도 의안 목록](https://bill.jnassembly.go.kr)
 - [ ] 🌤️ [제주도 의안 목록](https://www.council.jeju.kr)
 
-###  API
+### API
 
-- [ ] 🌤️ [solapi](https://solapi.com/)
-- [ ] 🌤️ [stibee](https://stibee.com/)
-- [ ] 🌤️ [구글 검색](https://developers.google.com/custom-search/v1/overview)
+#### [solapi](https://solapi.com/)
+
+- [x] SMS 발송하기
+- [x] 알림톡 발송하기
+
+#### [stibee](https://stibee.com/)
+
+- 자동이메일 API
+  - [x] 발송하기
+- 주소록
+  - [x] 구독자 추가
+  - [x] 구독자 삭제
+
+#### 구글
+
+- [x] [Custom Search](https://developers.google.com/custom-search/v1/overview)
 
 ## Apps
 
 ### [epp (CLI)](apps/cli/README.md)
 
-- [x] [국민신문고](https://www.epeople.go.kr/)
-  - 데이터 가져오기
-  - 데이터 디비 업로드하기(supabase)
+- [국민신문고](https://www.epeople.go.kr/)
+  - [x] 데이터 가져오기
+  - [x] 데이터 디비 업로드하기(supabase)
 
 ## Credit
 

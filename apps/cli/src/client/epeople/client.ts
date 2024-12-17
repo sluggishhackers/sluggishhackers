@@ -1,7 +1,7 @@
 import { AxiosInstance } from "axios";
 import { HttpClient, IClient } from "../../interface";
 import { CivilComplaint } from "./interface";
-import epeople from "@repo/crawlers";
+import epeople from "@slg/crawlers/epeople";
 
 export class EpeopleClient implements IClient {
   _csrf?: string;

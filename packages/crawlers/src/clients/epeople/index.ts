@@ -4,7 +4,7 @@ import { CivilComplaint } from "./epeople.type";
 
 export type * from "./epeople.type";
 
-export const login = async ({
+const login = async ({
   axios,
   username,
   password,
@@ -85,7 +85,7 @@ export const login = async ({
   throw new Error(data.lognSttsMsg || "로그인 실패");
 };
 
-export const fetchItems = async (params: {
+const fetchItems = async (params: {
   axios: AxiosInstance;
   csrf: string;
   page?: number;
@@ -195,7 +195,7 @@ export const fetchItems = async (params: {
   return civilComplaints;
 };
 
-export const fetchItem = async ({
+const fetchItem = async ({
   csrf,
   axios,
   item,
@@ -306,4 +306,10 @@ export const fetchItem = async ({
   });
 
   return item;
+};
+
+export default {
+  login,
+  fetchItem,
+  fetchItems,
 };

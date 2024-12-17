@@ -1,4 +1,26 @@
-import solapi from "solapi";
+import { SolapiMessageService } from "solapi";
+
+export const sendSms = ({
+  apiKey,
+  apiSecret,
+  mobile,
+  sender,
+  message,
+}: {
+  apiKey: string;
+  apiSecret: string;
+  mobile: string;
+  sender: string;
+  message: string;
+}) => {
+  const messageService = new SolapiMessageService(apiKey, apiSecret);
+
+  return messageService.send({
+    to: mobile,
+    from: sender,
+    text: message,
+  });
+};
 
 export const sendAlimtalk = ({
   apiKey,
@@ -21,7 +43,7 @@ export const sendAlimtalk = ({
     disabledSms?: boolean;
   };
 }) => {
-  const messageService = new solapi.SolapiMessageService(apiKey, apiSecret);
+  const messageService = new SolapiMessageService(apiKey, apiSecret);
 
   return messageService.send({
     to: mobile,

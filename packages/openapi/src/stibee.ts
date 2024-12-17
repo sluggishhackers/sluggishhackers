@@ -37,6 +37,33 @@ export const registerEmailToAddressBook = async ({
   );
 };
 
+export const deregisterEmailToAddressBook = async ({
+  apiKey,
+  addressBookId,
+  emails,
+  options,
+}: {
+  apiKey: string;
+  addressBookId: string;
+  emails: string[];
+  options?: {
+    version?: "v1";
+  };
+}) => {
+  return axios.post(
+    `https://api.stibee.com/${options?.version || "v1"}/lists/${addressBookId}/subscribers`,
+    {
+      subscribers: emails,
+    },
+    {
+      headers: {
+        AccessToken: apiKey,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+};
+
 export const sendAutomatedEmail = async ({
   apiKey,
   automatedEmailTemplateId,

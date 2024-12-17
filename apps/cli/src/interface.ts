@@ -11,7 +11,6 @@ export interface IClient {
   _csrf?: string;
   httpClient: HttpClient;
 
-  login(params: { username: string; password?: string }): Promise<void>;
   fetchItems?(params: {
     page?: number;
     pageSize?: number;
@@ -20,7 +19,7 @@ export interface IClient {
     dateFrom?: string;
   }): Promise<unknown>;
 
-  fetchItem(params: Record<string, string>): Promise<unknown>;
+  fetchItem?(params: Record<string, string>): Promise<unknown>;
 }
 
 export interface ISubCommand {
