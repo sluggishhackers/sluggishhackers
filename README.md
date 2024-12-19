@@ -59,6 +59,14 @@ Sluggish Hackers는 비영리 활동가 및 단체들을 대상으로 업무자�
   - [x] 데이터 가져오기
   - [x] 데이터 디비 업로드하기(supabase)
 
+## 개발하기
+
+```bash
+pnpm install
+pnpm install turbo --global
+turbo dev --filter=<app>
+```
+
 ## Credit
 
 - [후니](https://hoony.land)
