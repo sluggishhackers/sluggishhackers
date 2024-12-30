@@ -2,6 +2,7 @@ import axios from "axios";
 import { Option } from "commander";
 import { EpeopleClient } from "../client";
 import { ISubCommand } from "../../../interface";
+import openapi from "@slg/openapi";
 
 class FetchCommand implements ISubCommand {
   name: string;
@@ -39,33 +40,35 @@ class FetchCommand implements ISubCommand {
 export default new FetchCommand();
 
 const action = async (args: any): Promise<void> => {
-  const httpClient = axios.create({
-    withCredentials: true,
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0",
-    },
+  console.log(openapi);
+  openapi.x.post({
+    text: "test",
+    bearerToken:
+      "AAAAAAAAAAAAAAAAAAAAAOPKxgEAAAAAYCICyOAR7tt0vRzxpeu6D6EBW%2FQ%3DfGPCPXFAh8xm2tBMtCXmAISSBDt2leAv6JtmED7BaN86E9IWMJ",
   });
-
-  const client = new EpeopleClient({ httpClient });
-  await client.login({
-    username: args.username,
-    password: args.password,
-  });
-
-  const itemsFromList = await client.fetchItems({
-    page: 1,
-    pageSize: 10,
-    query: args.query,
-    dateFrom: args.dateFrom,
-    dateTo: args.dateTo,
-  });
-
-  const items = [];
-  for (const _item of itemsFromList) {
-    const item = await client.fetchItem(_item);
-    items.push(item);
-  }
-
-  console.log(items);
+  // const httpClient = axios.create({
+  //   withCredentials: true,
+  //   headers: {
+  //     "User-Agent":
+  //       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0",
+  //   },
+  // });
+  // const client = new EpeopleClient({ httpClient });
+  // await client.login({
+  //   username: args.username,
+  //   password: args.password,
+  // });
+  // const itemsFromList = await client.fetchItems({
+  //   page: 1,
+  //   pageSize: 10,
+  //   query: args.query,
+  //   dateFrom: args.dateFrom,
+  //   dateTo: args.dateTo,
+  // });
+  // const items = [];
+  // for (const _item of itemsFromList) {
+  //   const item = await client.fetchItem(_item);
+  //   items.push(item);
+  // }
+  // console.log(items);
 };
