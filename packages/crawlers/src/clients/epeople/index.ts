@@ -4,7 +4,7 @@ import { CivilComplaint } from "./epeople.type";
 
 export type * from "./epeople.type";
 
-const login = async ({
+export async function login({
   axios,
   username,
   password,
@@ -15,7 +15,7 @@ const login = async ({
 }): Promise<{
   axios: AxiosInstance;
   csrf: string;
-}> => {
+}> {
   let csrf = "";
 
   const mainPageForCsrftoken = await axios.get(
@@ -83,9 +83,9 @@ const login = async ({
   }
 
   throw new Error(data.lognSttsMsg || "로그인 실패");
-};
+}
 
-const fetchItems = async (params: {
+export async function fetchItems(params: {
   axios: AxiosInstance;
   csrf: string;
   page?: number;
@@ -93,7 +93,7 @@ const fetchItems = async (params: {
   query?: string;
   dateTo?: string;
   dateFrom?: string;
-}) => {
+}) {
   const response = await params.axios.post(
     "https://www.epeople.go.kr/nep/utilHistory/mySmgPttn/mySmgPttnList.paid",
     {
@@ -193,9 +193,9 @@ const fetchItems = async (params: {
   });
 
   return civilComplaints;
-};
+}
 
-const fetchItem = async ({
+export async function fetchItem({
   csrf,
   axios,
   item,
@@ -203,7 +203,7 @@ const fetchItem = async ({
   csrf: string;
   axios: AxiosInstance;
   item: CivilComplaint;
-}): Promise<CivilComplaint> => {
+}): Promise<CivilComplaint> {
   const response = await axios.post(
     "https://www.epeople.go.kr/nep/utilHistory/mySmgPttn/mySmgPttnDetail.paid",
     {
@@ -306,7 +306,7 @@ const fetchItem = async ({
   });
 
   return item;
-};
+}
 
 export default {
   login,
