@@ -16,6 +16,21 @@
     "dev": {
       "cache": false,
       "persistent": false
+    },
+    "test:packages": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.test.ts",
+        "src/**/*.test.tsx",
+        "packages/**/*.test.ts",
+        "packages/**/*.test.tsx",
+        "package.json",
+        "tsconfig.json"
+      ],
+      "outputs": ["coverage/**"],
+      "cache": false
     }
   }
 }

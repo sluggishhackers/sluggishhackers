@@ -26,17 +26,17 @@ export async function login({
         Origin: "https://www.epeople.go.kr",
         Referer: "https://www.epeople.go.kr/nep/crtf/userLogn.npaid",
       },
-    }
+    },
   );
 
   csrf = mainPageForCsrftoken.data.match(
-    /<meta name="_csrf_parameter" content="_csrf" \/><meta name="_csrf_header" content="X-CSRF-TOKEN" \/><meta name="_csrf" content="(.*)" \/>/
+    /<meta name="_csrf_parameter" content="_csrf" \/><meta name="_csrf_header" content="X-CSRF-TOKEN" \/><meta name="_csrf" content="(.*)" \/>/,
   )[1];
 
   const cookiesForLogin = mainPageForCsrftoken.headers["set-cookie"]?.map(
     (c) => {
       return c.split(";")[0];
-    }
+    },
   );
   axios.defaults.headers.Cookie = cookiesForLogin?.join("; ") || "";
 
@@ -129,7 +129,7 @@ export async function fetchItems(params: {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-    }
+    },
   );
 
   const $ = load(response.data);
@@ -226,7 +226,7 @@ export async function fetchItem({
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-    }
+    },
   );
 
   const $ = load(response.data);

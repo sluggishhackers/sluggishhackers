@@ -5,11 +5,14 @@
   "main": "src/index.ts",
   "description": "",
   "dependencies": {
+    "@odc/parsers": "workspace:*",
     "@slg/crawlers": "workspace:*",
     "@slg/openapi": "workspace:*",
     "axios": "^1.7.9",
     "commander": "^12.1.0",
     "cookie": "^1.0.2",
+    "csv-parse": "^5.6.0",
+    "csv-stringify": "^6.5.2",
     "figlet": "^1.8.0"
   },
   "devDependencies": {
