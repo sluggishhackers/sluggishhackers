@@ -1,28 +1,44 @@
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { ArrowLeft, Search, Download, FileJson, Calendar, Database, RefreshCw, Tag, Info } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { dataCategories, getDatasetById } from "@/lib/data-structure"
-import DownloadButton from "@/components/download-button"
-import DatasetUpdateBadge from "@/components/dataset-update-badge"
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  ArrowLeft,
+  Search,
+  Download,
+  FileJson,
+  Calendar,
+  Database,
+  RefreshCw,
+  Tag,
+  Info,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { dataCategories, getDatasetById } from "@/lib/data-structure";
+import DownloadButton from "@/components/download-button";
+import DatasetUpdateBadge from "@/components/dataset-update-badge";
 
 interface DatasetPageProps {
   params: {
-    category: string
-    dataset: string
-  }
+    category: string;
+    dataset: string;
+  };
 }
 
 export default function DatasetPage({ params }: DatasetPageProps) {
-  const dataset = getDatasetById(params.category, params.dataset)
-  const category = dataCategories.find((cat) => cat.id === params.category)
+  const dataset = getDatasetById(params.category, params.dataset);
+  const category = dataCategories.find((cat) => cat.id === params.category);
 
   if (!dataset || !category) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -53,7 +69,10 @@ export default function DatasetPage({ params }: DatasetPageProps) {
             <Badge variant="outline">{category.name}</Badge>
             {dataset.hasSearch && <Badge variant="secondary">검색 가능</Badge>}
             {dataset.featured && <Badge variant="default">주요 데이터셋</Badge>}
-            <DatasetUpdateBadge categoryId={category.id} datasetId={dataset.id} />
+            <DatasetUpdateBadge
+              categoryId={category.id}
+              datasetId={dataset.id}
+            />
           </div>
           <p className="text-muted-foreground text-lg">{dataset.description}</p>
         </div>
@@ -66,7 +85,9 @@ export default function DatasetPage({ params }: DatasetPageProps) {
           <Card>
             <CardHeader>
               <CardTitle>데이터 접근 방법</CardTitle>
-              <CardDescription>이 데이터셋에 접근할 수 있는 다양한 방법을 제공합니다.</CardDescription>
+              <CardDescription>
+                이 데이터셋에 접근할 수 있는 다양한 방법을 제공합니다.
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {dataset.hasSearch && (
@@ -77,7 +98,8 @@ export default function DatasetPage({ params }: DatasetPageProps) {
                     <Badge variant="secondary">추천</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
-                    웹 브라우저에서 직접 데이터를 검색하고 필터링할 수 있습니다. 로그인이 필요합니다.
+                    웹 브라우저에서 직접 데이터를 검색하고 필터링할 수 있습니다.
+                    로그인이 필요합니다.
                   </p>
                   <Button asChild>
                     <Link href={dataset.searchUrl!}>
@@ -95,7 +117,8 @@ export default function DatasetPage({ params }: DatasetPageProps) {
                     <h3 className="font-semibold">API 접근</h3>
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
-                    RESTful API를 통해 프로그래밍 방식으로 데이터에 접근할 수 있습니다.
+                    RESTful API를 통해 프로그래밍 방식으로 데이터에 접근할 수
+                    있습니다.
                   </p>
                   <Button asChild variant="outline" className="w-full">
                     <Link href={dataset.apiUrl}>
@@ -111,7 +134,8 @@ export default function DatasetPage({ params }: DatasetPageProps) {
                     <h3 className="font-semibold">데이터셋 다운로드</h3>
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
-                    전체 데이터를 {dataset.formats.join(", ")} 형식으로 다운로드할 수 있습니다.
+                    전체 데이터를 {dataset.formats.join(", ")} 형식으로
+                    다운로드할 수 있습니다.
                   </p>
                   <DownloadButton
                     datasetId={dataset.id}
@@ -132,7 +156,9 @@ export default function DatasetPage({ params }: DatasetPageProps) {
           <Card>
             <CardHeader>
               <CardTitle>데이터 정보</CardTitle>
-              <CardDescription>이 데이터셋의 상세 정보와 수집 방법을 확인할 수 있습니다.</CardDescription>
+              <CardDescription>
+                이 데이터셋의 상세 정보와 수집 방법을 확인할 수 있습니다.
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
@@ -150,7 +176,9 @@ export default function DatasetPage({ params }: DatasetPageProps) {
                   <Database className="h-4 w-4" />
                   수집 방법
                 </h3>
-                <p className="text-muted-foreground">{dataset.collectionMethod}</p>
+                <p className="text-muted-foreground">
+                  {dataset.collectionMethod}
+                </p>
               </div>
 
               <Separator />
@@ -175,7 +203,9 @@ export default function DatasetPage({ params }: DatasetPageProps) {
           <Card>
             <CardHeader>
               <CardTitle>활용 예시</CardTitle>
-              <CardDescription>이 데이터셋을 활용할 수 있는 다양한 방법들입니다.</CardDescription>
+              <CardDescription>
+                이 데이터셋을 활용할 수 있는 다양한 방법들입니다.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -184,7 +214,8 @@ export default function DatasetPage({ params }: DatasetPageProps) {
                     <div className="p-3 bg-muted/50 rounded">
                       <h4 className="font-medium mb-1">정부 지출 분석</h4>
                       <p className="text-sm text-muted-foreground">
-                        부처별, 연도별 예산 변화를 분석하여 정부 정책 우선순위 파악
+                        부처별, 연도별 예산 변화를 분석하여 정부 정책 우선순위
+                        파악
                       </p>
                     </div>
                     <div className="p-3 bg-muted/50 rounded">
@@ -241,7 +272,9 @@ export default function DatasetPage({ params }: DatasetPageProps) {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">총 레코드 수</span>
+                <span className="text-sm text-muted-foreground">
+                  총 레코드 수
+                </span>
                 <span className="font-semibold">{dataset.recordCount}</span>
               </div>
               <div className="flex items-center justify-between">
@@ -250,7 +283,9 @@ export default function DatasetPage({ params }: DatasetPageProps) {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">지원 형식</span>
-                <span className="font-semibold">{dataset.formats.join(", ")}</span>
+                <span className="font-semibold">
+                  {dataset.formats.join(", ")}
+                </span>
               </div>
               <Separator />
               <div className="flex items-center justify-between">
@@ -286,8 +321,12 @@ export default function DatasetPage({ params }: DatasetPageProps) {
                       href={`/data/${category.id}/${relatedDataset.id}`}
                       className="block p-3 border rounded hover:bg-muted/50 transition-colors"
                     >
-                      <h4 className="font-medium text-sm mb-1">{relatedDataset.name}</h4>
-                      <p className="text-xs text-muted-foreground line-clamp-2">{relatedDataset.description}</p>
+                      <h4 className="font-medium text-sm mb-1">
+                        {relatedDataset.name}
+                      </h4>
+                      <p className="text-xs text-muted-foreground line-clamp-2">
+                        {relatedDataset.description}
+                      </p>
                     </Link>
                   ))}
               </div>
@@ -299,7 +338,10 @@ export default function DatasetPage({ params }: DatasetPageProps) {
             <Info className="h-4 w-4" />
             <AlertDescription>
               데이터 사용 중 문제가 있거나 개선 사항이 있다면{" "}
-              <Link href="https://github.com/opendatacarvers" className="underline">
+              <Link
+                href="https://github.com/opendatacarvers"
+                className="underline"
+              >
                 GitHub
               </Link>
               에서 이슈를 등록해주세요.
@@ -308,20 +350,20 @@ export default function DatasetPage({ params }: DatasetPageProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export function generateStaticParams() {
-  const params: { category: string; dataset: string }[] = []
+  const params: { category: string; dataset: string }[] = [];
 
   dataCategories.forEach((category) => {
     category.datasets.forEach((dataset) => {
       params.push({
         category: category.id,
         dataset: dataset.id,
-      })
-    })
-  })
+      });
+    });
+  });
 
-  return params
+  return params;
 }
