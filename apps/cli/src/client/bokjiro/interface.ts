@@ -1,5 +1,3 @@
-import * as bokjiro from "@slg/crawlers/bokjiro";
-
 export type CivilComplaint = {
   id?: string;
   title?: string;

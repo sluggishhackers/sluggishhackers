@@ -1,5 +1,5 @@
 {
-  "name": "@slg/crawlers",
+  "name": "@odc/crawlers",
   "version": "0.0.1",
   "dependencies": {
     "axios": "^1.7.9",
@@ -7,15 +7,30 @@
     "qs": "^6.13.1"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest --config=jest.config.js"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.10.2",
     "@types/qs": "^6.9.17",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.4",
     "typescript": "latest",
     "turbo": "latest"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/src/**/*.test.ts",
+      "<rootDir>/src/**/*.test.tsx"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
   },
   "exports": {
     ".": {
@@ -29,6 +44,10 @@
     "./epeople": {
       "types": "./src/clients/epeople/index.ts",
       "default": "./dist/clients/epeople/index.js"
+    },
+    "./scourt": {
+      "types": "./src/clients/scourt/index.ts",
+      "default": "./dist/clients/scourt/index.js"
     }
   },
   "keywords": [],

@@ -44,7 +44,6 @@ async function processCSV(
   inputPath: string,
   outputPath: string
 ): Promise<void> {
-  console.log(inputPath, outputPath);
   const parser = createReadStream(inputPath).pipe(
     parse({
       columns: true,
@@ -54,11 +53,12 @@ async function processCSV(
 
   const records: any[] = [];
   for await (const record of parser) {
-    if (record.detail) {
+    if (record.type === "증권" && record.detail) {
       const stocks = splitStocks(record.detail);
       for (const stock of stocks) {
         const newRecord = {
           id: record.id,
+          name: record.name,
           date: record.date,
           type: record.type,
           kind: record.kind,
@@ -66,21 +66,29 @@ async function processCSV(
           detail: stock.name,
           amount: stock.amount,
           change: stock.change,
+          relation: record.relation,
+          reason: record.reason,
+          affiliation: record.affiliation,
+          affiliationType: record.affiliationType,
         };
         records.push(newRecord);
       }
-    } else {
-      const newRecord = {
-        id: record.id,
-        date: record.date,
-        type: record.type,
-        kind: record.kind,
-        nationalAssemblyMemberId: record.nationalAssemblyMemberId,
-        detail: record.detail,
-        amount: null,
-        change: null,
-      };
-      records.push(newRecord);
+      // } else {
+      //   const newRecord = {
+      //     id: record.id,
+      //     date: record.date,
+      //     type: record.type,
+      //     kind: record.kind,
+      //     nationalAssemblyMemberId: record.nationalAssemblyMemberId,
+      //     detail: record.detail,
+      //     amount: null,
+      //     change: null,
+      //     relation: record.relation,
+      //     reason: record.reason,
+      //     affiliation: record.affiliation,
+      //     affiliationType: record.affiliationType,
+      //   };
+      //   records.push(newRecord);
     }
   }
 
@@ -89,12 +97,17 @@ async function processCSV(
     columns: [
       "id",
       "date",
+      "affiliation",
+      "affiliationType",
+      "name",
+      "relation",
       "type",
       "kind",
       "nationalAssemblyMemberId",
       "detail",
       "amount",
       "change",
+      "reason",
     ],
   });
 

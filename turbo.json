@@ -31,6 +31,15 @@
       ],
       "outputs": ["coverage/**"],
       "cache": false
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false
     }
   }
 }

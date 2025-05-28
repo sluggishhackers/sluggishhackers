@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model ScourtCase {
+  csNoLstCtt               String  @id
+  dcdcsCtt                 String?
+  jdcpctSumrCtt            String?
+  csNmLstCtt               String?
+  cortNm                   String?
+  jdcpctPublcCtt           String?
+  grpJdcpctGrNm            String?
+  frstInptDt               String?
+  rcmnIntnCntntsPopltScor  String?
+  prnjdgYmd                String?
+  jdcyCntntsPopltScor      String?
+  rcmnExtnlCntntsPopltScor String?
+  lastChgDt                String?
+  rcmnGnrlCntntsPopltScor  String?
+  jdcpctDsgnStatCd         String?
+  intnCntntsPopltScor      String?
+  gnrlCntntsPopltScor      String?
+  jdcpctGrCd               String?
+  htagCtt                  String?
+  etcCntntsPopltScor       String?
+  extnlCntntsPopltScor     String?
+  jdcpctCsAlsNm            String?
+  rcmnEtcCntntsPopltScor   String?
+  tpcJdcpctCsAlsYn         String?
+  jdcpctXmlCtt             String?
+  jisCntntsSrno            String?
+  jisJdcpcInstnDvsCd       String?
+  adjdTypNm                String?
+  rcmnJdcyCntntsPopltScor  String?
+  content                  String?
+}

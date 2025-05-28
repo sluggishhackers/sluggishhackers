@@ -1,6 +1,6 @@
 import { AxiosInstance } from "axios";
 import { Agent } from "https";
-import bokjiro, { ServerSideServiceFromList } from "@slg/crawlers/bokjiro";
+import bokjiro, { ServerSideServiceFromList } from "@odc/crawlers/bokjiro";
 import { HttpClient, IClient } from "../../interface";
 
 export class BokjiroClient implements IClient {
